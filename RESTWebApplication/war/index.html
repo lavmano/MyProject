@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<title>Registration  Application</title>  
+</head>  
+<body bgcolor="lightgray">  
+    <form class="form" action="/employee">  
+        <fieldset style="width: 400px" >  
+            <legend> Employee Application </legend>  
+            <table>  
+                <tr>  
+                    <td>Employee ID </td>  
+                    <td><input type="text" id="employee_id" required="required" placeholder="Enter name" /></td>  
+                </tr>  
+                <tr>  
+                    <td>Employee Name</td>  
+                    <td><input type="text" id="employee_name" required="required" placeholder="Enter email-id" /></td>  
+                </tr>
+                <tr>  
+                    <td>Email-ID</td>  
+                    <td><input type="text" name="employee_email" required="required" placeholder="Enter email-id" /></td>  
+                </tr>
+                <tr>  
+                    <td>Age</td>  
+                    <td><input type="text" name="employee_age" required="required" placeholder="Enter age" /></td>  
+                </tr>  
+                <tr>  
+                    <td>DOJ</td>  
+                    <td><input type="text" name="employee_dob" required="required" placeholder="DD-MM-YYYY" /></td>  
+                </tr>
+                
+                <tr>  
+                    <td>EMP_Address</td>  
+                    <td><textarea rows="4" cols="19" name="address"></textarea><br></td>  
+                </tr>
+                <tr>
+                    <td><br><button type="button" id="save"  value="Register" >Save</button> 
+                      <input type="reset" value="Clear" />
+                    </td>  
+             
+                 
+                </tr> 
+                  
+            </table>  
+        </fieldset>  
+    </form>  
+
+
+ <script>
+  $("#save").click(function(){
+        var name=$("#employee_name").val();  
+
+        $.ajax({
+                url:"/core/api/employee/save",
+                data:{"employee_name":"Lav", "id":"12345" },
+                success:function(response,status){
+                	alert("Data is saved")
+                 
+                },
+                error:function(){
+                    alert("Error is Occure Try Again later....");
+                }
+            }); 
+
+          });
+
+
+</script>
+</body>  
+</html>  
